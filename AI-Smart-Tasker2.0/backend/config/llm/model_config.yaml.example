@@ -1,0 +1,24 @@
+# LLM model configuration
+# Copy this file to model_config.yaml and fill in your settings.
+# model_config.yaml is git-ignored to protect your API endpoint.
+
+# Model to serve (any OpenAI-compatible endpoint, e.g. vLLM, Ollama, OpenAI)
+model_name: "${oc.env:LLM_MODEL_NAME,Qwen/Qwen3-VL-4B-Instruct}"
+
+# Your vLLM / OpenAI-compatible server base URL
+api_base: "${oc.env:LLM_API_BASE,http://localhost:8001/v1}"
+
+# API key — set to "EMPTY" for local vLLM; use your real key for OpenAI
+api_key: "${oc.env:LLM_API_KEY,EMPTY}"
+
+# Generation parameters
+temperature: 0.7
+max_tokens: 150
+top_p: 0.9
+frequency_penalty: 0.0
+presence_penalty: 0.0
+
+# Timeout / retry settings
+request_timeout: 30    # seconds
+max_retries: 3
+retry_delay: 1         # seconds

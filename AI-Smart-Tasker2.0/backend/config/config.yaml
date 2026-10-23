@@ -1,0 +1,32 @@
+# Main configuration file for AI Task Manager
+
+# Application settings
+app:
+  name: "AI Task Manager"
+  version: "1.0.0"
+  debug: false
+  log_level: "INFO"
+
+# Database and LLM configuration
+# Hydra defaults - these will be merged into the main config
+defaults:
+  - db: database
+  - llm: model_config
+  - prompts
+  - _self_
+
+# API settings
+api:
+  host: "0.0.0.0"
+  port: 8000
+  cors_origins:
+    - "http://localhost:3000"
+    - "http://localhost:3001"
+  workers: 4
+
+# Feature flags
+features:
+  enable_ai_insults: true
+  enable_ai_summaries: true
+  enable_analytics: true
+  auto_generate_insults: true  # Automatically generate insults on deadline check

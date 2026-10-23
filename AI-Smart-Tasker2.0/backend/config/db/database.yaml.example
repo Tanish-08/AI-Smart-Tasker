@@ -1,0 +1,21 @@
+# Database configuration for PostgreSQL
+# Copy this file to database.yaml and fill in your credentials.
+# database.yaml is git-ignored to protect secrets.
+
+# Database connection settings
+host: "${oc.env:DB_HOST,localhost}"
+port: "${oc.env:DB_PORT,5432}"
+database: "${oc.env:DB_NAME,taskmanager}"
+user: "${oc.env:DB_USER,taskmanager_user}"
+password: "${oc.env:DB_PASSWORD,CHANGE_ME}"
+
+# Connection pool settings
+pool_size: 10
+max_overflow: 20
+pool_pre_ping: true
+
+# SQL echo (set to true for query debugging)
+echo: false
+
+# Connection timeout (seconds)
+connect_timeout: 30

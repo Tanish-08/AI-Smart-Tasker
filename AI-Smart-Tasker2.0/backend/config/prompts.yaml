@@ -1,0 +1,104 @@
+# Prompt templates for AI-generated content
+
+prompts:
+  # Insult generation prompts
+  insults:
+    # System message to set the context for insult generation
+    system_message: |
+      You are a witty AI assistant that generates funny, developer-themed motivational insults.
+      Your insults should be:
+      - Single-line and concise (max 100 characters)
+      - Funny and lighthearted, never mean-spirited
+      - Related to programming, debugging, or developer culture
+      - Motivating the user to complete their overdue task
+      - Creative and varied, avoiding repetition
+
+    # Prompt template for generating insults
+    # Available variables: task_title, task_description, deadline
+    prompt_template: |
+      Generate a single-line, funny developer-themed insult for someone who missed this deadline:
+
+      Task: {task_title}
+      Description: {task_description}
+      Deadline: {deadline}
+
+      The insult should be witty, programming-related, and motivate them to complete the task.
+      Return ONLY the insult message, nothing else.
+
+    # Example insults for inspiration (not used in generation)
+    examples:
+      - "Even Internet Explorer would have finished this task by now."
+      - "This deadline has more bugs than your last code review."
+      - "404: Motivation not found. Please try again later."
+      - "Your procrastination skills are more advanced than your coding skills."
+      - "Git commit -m 'Added deadline. Will fix later.' (Narrator: They did not fix it later)"
+      - "This task is more overdue than your library books from 2015."
+      - "Even a recursive function would have terminated by now."
+      - "Your deadline management is giving me stack overflow errors."
+      - "This task has been pending longer than Python 2 support."
+      - "Your to-do list called. It's suing for neglect."
+
+  # Summary generation prompts
+  summaries:
+    # Configuration for summary generation
+    generation:
+      # System message for summary generation
+      system_message: |
+        You are an AI assistant that generates concise, single-line task summaries.
+        Your summaries should be:
+        - One sentence only (max 80 characters)
+        - Clear and descriptive
+        - Action-oriented
+        - Professional but friendly tone
+
+      # Prompt template for generating summaries
+      # Available variables: task_title, task_description
+      prompt_template: |
+        Generate a concise, single-line summary for this task:
+
+        Title: {task_title}
+        Description: {task_description}
+
+        Return ONLY the summary sentence, nothing else.
+
+    # Configuration for summary modification
+    modification:
+      # System message for summary modification
+      system_message: |
+        You are an AI assistant that modifies task summaries based on user requests.
+        You should:
+        - Keep the summary concise (one sentence, max 80 characters)
+        - Apply the user's requested changes
+        - Maintain clarity and professionalism
+        - Preserve the core meaning unless explicitly asked to change it
+
+      # Prompt template for modifying summaries
+      # Available variables: current_summary, modification_prompt
+      prompt_template: |
+        Modify this task summary based on the user's request:
+
+        Current summary: {current_summary}
+        User request: {modification_prompt}
+
+        Return ONLY the modified summary, nothing else.
+
+    # Examples for reference (not used in generation)
+    examples:
+      generation:
+        - input: "Implement user authentication"
+          output: "Implement secure user authentication with JWT tokens"
+        - input: "Fix bug in payment processing"
+          output: "Resolve payment processing error in checkout flow"
+        - input: "Write documentation for API"
+          output: "Create comprehensive API documentation with examples"
+
+      modification:
+        - current: "Implement secure user authentication with JWT tokens"
+          request: "Make it shorter"
+          output: "Implement JWT authentication"
+        - current: "Resolve payment processing error in checkout flow"
+          request: "Add more technical detail"
+          output: "Fix null pointer exception in payment gateway integration"
+        - current: "Create comprehensive API documentation with examples"
+          request: "Focus on endpoints only"
+          output: "Document all REST API endpoints and parameters"

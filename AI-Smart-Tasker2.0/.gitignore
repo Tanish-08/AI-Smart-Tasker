@@ -1,0 +1,49 @@
+# Python / Virtual Environment
+venv/
+.venv/
+env/
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Testing & Coverage
+.pytest_cache/
+.coverage
+htmlcov/
+*.cover
+*.pyo
+
+# Local Databases (Crucial: Prevents uploading local DBs)
+*.db
+*.sqlite3
+tasker.db
+taskmanager.db
+
+# Logs & Temporary Files
+*.log
+backend.log
+*.tmp
+
+# Environment & Secrets (Crucial: Prevents leaking API keys)
+.env
+.env.local
+.env.production
+*.env
+backend/config/db/database.yaml
+backend/config/llm/model_config.yaml
+!.env.example
+
+# IDE / Editor Folders
+.claude/
+.vscode/
+.idea/
+
+# OS Specific Files
+.DS_Store
+Thumbs.db
+
+# Frontend / Node Dependencies
+frontend/node_modules/
+frontend/.next/
+frontend/out/
+frontend/build/
